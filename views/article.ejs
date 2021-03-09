@@ -1,0 +1,16 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/homenavbar.ejs') %>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3><small> <%= article.title %> </h2></small>  
+            </div>
+            <div class="card-body">
+                <!-- Para deixar texto, videos, imagens formatadas no tinymce precisamos colocar "-" antes de article.body como abaixo -->
+                <!-- Nunca esquecer de colocar assim !!!!-->
+                <%- article.body %>
+            </div>
+        </div>
+</body>
+<%- include('partials/footer.ejs') %>

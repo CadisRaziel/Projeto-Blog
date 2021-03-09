@@ -1,0 +1,56 @@
+<%- include('../../partials/header.ejs') %>
+    <%- include('../../partials/navbar.ejs') %>
+
+        <div class="container">
+            <h2>Category</h2>
+            <a class="btn btn-success" href="/admin/categories/new">Create a new category</a>
+            <hr>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Slug</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% categories.forEach(category=> { %>
+                        <tr>
+                            <th scope="col">
+                                <%= category.id %>
+                            </th>
+                            <th scope="col">
+                                <%= category.title%>
+                            </th>
+                            <th scope="col">
+                                <%= category.slug%>
+                            </th>
+                            <th>
+                                <a href="/admin/categories/edit/<%= category.id %>" class="btn btn-warning">Edit</a>
+
+                                <form method="POST" action="/categories/delete" style="display: inline;"
+                                    onsubmit="ConfirmDelet(event, this)">
+                                    <input type="hidden" name="id" value="<%= category.id %>">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </th>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+
+
+        <%- include('../../partials/footer.ejs') %>
+
+            <script>
+                //pergunta para o usuario se ele realmente quer deletar um item da tabela
+                function ConfirmDelet(event, form) {
+                    event.preventDefault()
+                    const decision = confirm("Are you sure you want to delete?")
+                    if(decision) {
+                        form.submit()
+                    }
+                }
+            </script>

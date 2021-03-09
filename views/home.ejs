@@ -1,0 +1,40 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/homenavbar.ejs') %>
+<body>
+    <div class="container">
+        <tbody>
+            <div class="jumbotron">
+                <h1 class="display-4">Welcome to the blog about programming</h1>
+                <p class="lead">Here I will leave content related to the programming area about nodejs, javascript and database and I will also leave tutorials and images that I get on the internet</p>
+                <hr class="my-4">
+                <p>To enter the blog and be able to post articles and categories simply login.</p>
+                <p class="lead">
+                  <a class="btn btn-outline-dark" href="/login" role="button">Log in</a>
+                </p>
+                <p>If you don't have an account yet, just click here on the button and create an account.</p>
+                <p class="lead">
+                  <a class="btn btn-outline-dark" href="./admin/users/create" role="button">Create your account here</a>
+                </p>
+            </div>
+              
+            <% articles.forEach(article=> { %>
+                <div class="card">
+                    <div class="card-header">
+                        <h3><small> <%= article.title %> </h2></small>  
+                    </div>
+                    <div class="card-body">
+                        <a href="/<%= article.slug %>" class="btn btn-outline-dark">Read the article</a>
+                    </div>
+                </div>
+                <br>
+                <% }) %>
+
+                <div class="row">
+                    <div class="col col-12">
+                        <a href="/articles/page/2" class="btn btn-dark" style="float: right">Next page</a>
+                    </div>
+                </div>
+                <hr>
+    </div>
+</body>
+<%- include('partials/footer.ejs') %>

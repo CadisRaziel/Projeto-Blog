@@ -1,0 +1,28 @@
+inicie o projeto instalando as bibliotecas necessarias de inicio:
+1º npm init
+2º npm i --save express
+3º npm i --save sequelize
+4º npm i --save mysql2
+5º npm i --save body-parser
+6º npm i --save ejs
+
+(instalando o slug: npm i --save slugify)
+
+instalando hash: npm i --save bcryptjs
+instalando biblioteca de session: npm i express-session --save
+
+//=============================
+todo artigo, pertence a uma categoria "1-para-1"
+e uma categoria pode ter multiplos artigos "1-para-varios" 
+
+devemos escolher uma opção para representar a relaçao da data base, 
+1 para 1 ou 1 para varios (ou escolher a duas"uma via de mao dupla")
+//=============================
+
+
+instalando o TinyMCE (Site: https://www.tiny.cloud/get-tiny/self-hosted/) <- esse site não tem na pagina do tiny(porém é do tiny)
+para baixar a tradução do tinymce para deixar em portugues: https://www.tiny.cloud/get-tiny/language-packages/
+em seguida clique na linguagem que quer e ele vai baxiar um arquivo zip
+dentro do arquivo vai te uma pasta "langs" entre nela e vai ter o arquivo de tradução
+em seguida copie o arquivo e cole dentro da pasta tinymc tem a pasta langs cole o arquivo la
+(obs: o arquivo do tinymc ja deve estar dentro do projeto)

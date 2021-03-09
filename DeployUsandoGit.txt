@@ -1,0 +1,24 @@
+Inicialmente va na pasta database e subistituia o host, o usario e senha (coloque a que voce definiu no site em que vai fazer o deploy)
+em seguida veja a porta(port) em que o site que faz o deploy esta e altere no app.js
+
+em seguida va ao package.json e na parte do scripts coloque "start": "node app.js"
+
+
+em seguida va para o git \/
+crie o .gitignore e escreva "node_modules/" (o .gitignore vai fazer com que essa pasta não seja incluida no deploy)
+
+ usando o git remote abre o terminal e digite : git init
+ em seguida adicione os arquivos a ser enviados: git add .
+ em seguida faça um commit pra criar uma versão: git commit -m "Primeira versão"
+ em seguida copie o git remote add do site : git remote add github(ou o site que preferiu) https://.....
+ em seguida execute o push pra enviar: git push github(ou o site que preferiu) master
+
+ e pronto !!!
+
+
+ obs: sempre que realizar mudanças em seu projeto faça um novo git commit:  git commit -m "segunda versão ou adicionando script start"
+ para ir deixando na linha do tempo e quando precisar acessa-lo e só digitar alguns comandos
+ lembre de sempre por um nome no commit para voce saber o que é
+
+ 
+

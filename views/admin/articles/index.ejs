@@ -1,0 +1,59 @@
+<%- include('../../partials/header.ejs') %>
+    <%- include('../../partials/navbar.ejs') %>
+
+        <div class="container">
+            <h2>Articles</h2>
+            <a class="btn btn-success" href="/admin/articles/new">Create a new article</a>
+            <hr>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Slug</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% articles.forEach(article => { %>
+                        <tr>
+                            <td>
+                                <%= article.id %>
+                            </td>
+                            <td>
+                                <%= article.title %>
+                            </td>
+                            <td>
+                                <%= article.slug %>
+                            </td>
+                            <td>
+                                <%= article.category.title %>
+                            </td>
+                            <td>                               
+                                <form method="POST" action="/articles/delete" style="display: inline;"
+                                    onsubmit="ConfirmDelet(event, this)">
+                                    <input type="hidden" name="id" value="<%= article.id %>">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+
+                                </form>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+
+
+        <%- include('../../partials/footer.ejs') %>
+
+            <script>
+                //pergunta para o usuario se ele realmente quer deletar um item da tabela
+                function ConfirmDelet(event, form) {
+                    event.preventDefault()
+                    const decision = confirm("Are you sure you want to delete?")
+                    if (decision) {
+                        form.submit()
+                    }
+                }
+            </script>
